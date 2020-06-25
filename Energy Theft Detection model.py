@@ -149,14 +149,14 @@ X_test = sc.transform(X_test)
 
 from sklearn.ensemble import RandomForestRegressor
 
-regressor = RandomForestRegressor(n_estimators=20, random_state=0)
+regressor = RandomForestRegressor(n_estimators=50, random_state=0)
 regressor.fit(X_train, y_train)
 y_pred = regressor.predict(X_test)
 
 for i in range(len(y_pred)):
-    if y_pred[i]>=0.6:
+    if y_pred[i]>=0.5:
         y_pred[i]=1
-    elif y_pred[i]<0.6:
+    elif y_pred[i]<0.5:
         y_pred[i]=0
    
 
