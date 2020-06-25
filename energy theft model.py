@@ -63,18 +63,22 @@ for i in range(20):
 # we took cluster 3 which falls in between having suitable number of IDs
 
 
-theft = cl3.sample(n=400)    # took 400 random ids to make changes to their data
+thefta = cl3.sample(n=700)
+theftb = cl1.sample(n=3300)
+
+theft= pd.concat([thefta,theftb])
+    # took 4000 random ids to make changes to their data
 
 index_names= theft.index  # renaming their index name so that we do not have same name as theft and honest
-for q in range(400):
-    theft.rename(index={indn[q]:'theft'+str(q)}, inplace=True)
+for q in range(4000):
+    theft.rename(index={index_names[q]:'theft'+str(q)}, inplace=True)
 
 import random
 # divided into 4 types of theft
-theft1= theft[:100]
-theft2= theft[100:200]
-theft3= theft[200:300]
-theft4= theft[300:400]
+theft1= theft[:1000]
+theft2= theft[1000:2300]
+theft3= theft[2300:3500]
+theft4= theft[3500:4000]
 
 # consumption of energy decreased by same factor for all months
 for i in range(len(theft1)):
