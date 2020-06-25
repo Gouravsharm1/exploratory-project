@@ -71,7 +71,7 @@ theft= pd.concat([thefta,theftb])
 
 index_names= theft.index  # renaming their index name so that we do not have same name as theft and honest
 for q in range(4000):
-    theft.rename(index={index_names[q]:'theft'+str(q)}, inplace=True)
+    theft.rename(index={index_names[q]:'MACID'+str(q)}, inplace=True)
 
 import random
 # divided into 4 types of theft
